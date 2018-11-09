@@ -2,7 +2,7 @@
   "name": "herolo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://shlommi.github.io/deployedassignment/",
+  "homepage": "http://shlommi.github.io/deployedassignment",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
