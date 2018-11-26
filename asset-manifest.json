@@ -1,15 +1,15 @@
 {
   "main.css": "/deployedassignment/static/css/main.ecd45ebb.chunk.css",
-  "main.js": "/deployedassignment/static/js/main.5c704093.chunk.js",
-  "main.js.map": "/deployedassignment/static/js/main.5c704093.chunk.js.map",
+  "main.js": "/deployedassignment/static/js/main.fb179c50.chunk.js",
+  "main.js.map": "/deployedassignment/static/js/main.fb179c50.chunk.js.map",
   "static/css/1.9ef707f9.chunk.css": "/deployedassignment/static/css/1.9ef707f9.chunk.css",
   "static/js/1.fb542bbe.chunk.js": "/deployedassignment/static/js/1.fb542bbe.chunk.js",
   "static/js/1.fb542bbe.chunk.js.map": "/deployedassignment/static/js/1.fb542bbe.chunk.js.map",
   "runtime~main.js": "/deployedassignment/static/js/runtime~main.1a61a6d3.js",
   "runtime~main.js.map": "/deployedassignment/static/js/runtime~main.1a61a6d3.js.map",
-  "static/css/main.ecd45ebb.chunk.css.map": "/deployedassignment/static/css/main.ecd45ebb.chunk.css.map",
   "static/css/1.9ef707f9.chunk.css.map": "/deployedassignment/static/css/1.9ef707f9.chunk.css.map",
+  "static/css/main.ecd45ebb.chunk.css.map": "/deployedassignment/static/css/main.ecd45ebb.chunk.css.map",
   "index.html": "/deployedassignment/index.html",
-  "precache-manifest.82c7a19afb95a81998e94cd4a54ddc8e.js": "/deployedassignment/precache-manifest.82c7a19afb95a81998e94cd4a54ddc8e.js",
+  "precache-manifest.22339b4f4b51127940af31535dfe5c9f.js": "/deployedassignment/precache-manifest.22339b4f4b51127940af31535dfe5c9f.js",
   "service-worker.js": "/deployedassignment/service-worker.js"
 }
