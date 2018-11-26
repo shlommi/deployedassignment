@@ -15,7 +15,7 @@ export const fetchMoviesAndDetails = () => async (dispatch, getState) => {
 
 export const getMovies = () => async dispatch => {
   const res = await axios.get(
-    `http://www.omdbapi.com/?s=all&apikey=${API_KEY}`
+    `https://www.omdbapi.com/?s=all&apikey=${API_KEY}`
   );
   dispatch({
     type: GET_MOVIES,
@@ -25,7 +25,7 @@ export const getMovies = () => async dispatch => {
 
 export const getMovie = id => async dispatch => {
   const res = await axios.get(
-    `http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`
+    `https://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`
   );
   dispatch({
     type: GET_MOVIE,
@@ -35,7 +35,7 @@ export const getMovie = id => async dispatch => {
 
 export const getDetailsMovie = id => async dispatch => {
   const res = await axios.get(
-    `http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`
+    `https://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`
   );
   dispatch({
     type: GET_DETAILS_MOVIE,
