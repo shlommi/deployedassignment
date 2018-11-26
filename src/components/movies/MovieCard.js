@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardBody, Badge, Collapse } from "reactstrap";
 import { connect } from "react-redux";
-import { getDetailsMovie } from "../../actions/actionsCreators";
 import PropTypes from "prop-types";
 import EditMovie from "./EditMovie";
 import DeleteMovie from "./DeleteMovie";
@@ -20,29 +19,32 @@ class MovieCard extends Component {
     };
   }
 
-  handleShowDetails = id => {
-    this.props.getDetailsMovie(id);
+  handleShowDetails = () => {
     this.setState({ collapse: !this.state.collapse });
   };
 
   render() {
     const { imdbID, Poster, Title } = this.props.movie;
-    const { Year, Runtime, Genre } = this.props.moreDetails;
     validTitle(Title);
+
+    const { moreDetails } = this.props;
+
+    if (!this.props.moreDetails) {
+      return null;
+    }
+
     return (
       <div>
-        <Card
-          style={{ cursor: "pointer" }}
-          className="shadow"
-          onClick={() => this.handleShowDetails(imdbID)}
-          onMouseLeave={() => this.setState({ collapse: false })}
-        >
-          <CardImg top width="100%" src={Poster} alt="Card image cap" />
+        <Card style={{ cursor: "pointer" }} className="shadow">
+          <CardImg
+            top
+            width="100%"
+            src={Poster}
+            alt="Card image cap"
+            onClick={() => this.handleShowDetails()}
+          />
 
-          <Collapse
-            isOpen={this.state.collapse}
-            onMouseLeave={() => this.setState({ collapse: false })}
-          >
+          <Collapse isOpen={this.state.collapse}>
             <Card>
               <CardBody>
                 <h5>
@@ -51,21 +53,19 @@ class MovieCard extends Component {
                 </h5>
                 <h5>
                   <Badge color="info">Year:</Badge>
-                  {Year}
+                  {moreDetails.Year}
                 </h5>
                 <h5>
                   <Badge color="info">Runtime:</Badge>
-                  {Runtime}
+                  {moreDetails.Runtime}
                 </h5>
                 <h5>
                   <Badge color="info">Genre:</Badge>
-                  {Genre}
+                  {moreDetails.Genre}
                 </h5>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
+                <div style={{ display: "flex" }}>
                   <EditMovie editIdMovie={imdbID} />
-                  <DeleteMovie />
+                  <DeleteMovie deleteIdMovie={imdbID} />
                 </div>
               </CardBody>
             </Card>
@@ -77,15 +77,13 @@ class MovieCard extends Component {
 }
 
 MovieCard.propTypes = {
-  moreDetails: PropTypes.object.isRequired,
-  getDetailsMovie: PropTypes.func.isRequired
+  moreDetails: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-  moreDetails: state.movies.detailsMovie
-});
+const mapStateToProps = (state, ownProps) => {
+  return {
+    moreDetails: state.subDetails.find(item => item.imdbID === ownProps.movieId)
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  { getDetailsMovie }
-)(MovieCard);
+export default connect(mapStateToProps)(MovieCard);

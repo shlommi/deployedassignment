@@ -6,9 +6,7 @@ const AppNavbar = () => {
   return (
     <React.Fragment>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="https://shlommi.github.io/deployedassignment/">
-          Herolo Cinema
-        </NavbarBrand>
+        <NavbarBrand href="/">Herolo Cinema</NavbarBrand>
         <Nav className="ml-5" navbar>
           <NavItem>
             <NavLink>

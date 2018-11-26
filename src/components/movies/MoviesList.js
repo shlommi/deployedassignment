@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getMovies } from "../../actions/actionsCreators";
+import { fetchMoviesAndDetails } from "../../actions/actionsCreators";
 import PropTypes from "prop-types";
 import MovieCard from "./MovieCard";
 import { Row, Col, Container } from "reactstrap";
 
 class MoviesList extends Component {
   componentDidMount() {
-    this.props.getMovies();
+    this.props.fetchMoviesAndDetails();
   }
 
   render() {
@@ -15,7 +15,7 @@ class MoviesList extends Component {
     let moviesCards = movies.map(movie => {
       return (
         <Col md="4" key={movie.imdbID}>
-          <MovieCard movie={movie} className="mb-2" />
+          <MovieCard movie={movie} movieId={movie.imdbID} className="mb-2" />
         </Col>
       );
     });
@@ -31,7 +31,7 @@ class MoviesList extends Component {
 
 MoviesList.propTypes = {
   movies: PropTypes.array.isRequired,
-  getMovies: PropTypes.func.isRequired
+  fetchMoviesAndDetails: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -40,5 +40,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMovies }
+  { fetchMoviesAndDetails }
 )(MoviesList);

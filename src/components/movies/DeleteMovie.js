@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
+import { deleteCurrentMovie } from "../../actions/actionsCreators";
+import { connect } from "react-redux";
 
 class DeleteMovie extends Component {
   constructor(props) {
@@ -13,6 +15,9 @@ class DeleteMovie extends Component {
     this.setState({
       modal: !this.state.modal
     });
+  };
+  delete = id => {
+    this.props.deleteCurrentMovie(this.props.deleteIdMovie);
   };
 
   render() {
@@ -29,7 +34,7 @@ class DeleteMovie extends Component {
           <ModalHeader toggle={this.toggle}>Delete movie?</ModalHeader>
 
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
+            <Button color="primary" onClick={this.delete}>
               Ok
             </Button>
             <Button color="danger" onClick={this.toggle}>
@@ -42,4 +47,7 @@ class DeleteMovie extends Component {
   }
 }
 
-export default DeleteMovie;
+export default connect(
+  null,
+  { deleteCurrentMovie }
+)(DeleteMovie);

@@ -1,8 +1,7 @@
-import { GET_MOVIES, GET_MOVIE, GET_DETAILS_MOVIE } from "../actions/types";
+import { GET_MOVIES, GET_MOVIE, DELETE_MOVIE } from "../actions/types";
 
 const initialState = {
   movies: [],
-  detailsMovie: {},
   curentEditedMovie: {
     Title: "",
     Year: "",
@@ -24,10 +23,10 @@ export default function(state = initialState, action) {
         ...state,
         curentEditedMovie: action.payload
       };
-    case GET_DETAILS_MOVIE:
+    case DELETE_MOVIE:
       return {
         ...state,
-        detailsMovie: action.payload
+        movies: state.movies.filter(movie => movie.imdbID !== action.payload)
       };
     default:
       return state;
